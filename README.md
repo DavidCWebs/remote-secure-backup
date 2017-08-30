@@ -114,13 +114,13 @@ Create a symlink to `duplicity-encrypted.sh` in `/usr/local/bin` or another suit
 sudo ln -s /path/to/repo/duplicity-encrypted.sh /usr/local/bin/backup-my-secrets
 ~~~
 
-Enter `backup-my-secrets` to trigger the backup. Adding this to a cronjob is probably a good idea.
+Entering `backup-my-secrets` will now trigger the backup. Adding this to a cronjob is probably a good idea.
 
 ## Restoring From Backup
 Create a symlink to `restore-encrypted.sh` in `/usr/local/bin` or another suitable directory in your `$PATH`:
 
 ~~~bash
-sudo ln -s /path/to/repo/duplicity-encrypted.sh /usr/local/bin/restore-my-secrets
+sudo ln -s /path/to/repo/restore-encrypted.sh /usr/local/bin/restore-my-secrets
 ~~~
 
 Enter `restore-my-secrets` to trigger the restore. The script will prompt you to specify a parent directory for the restore, and the restored decrypted files will be added to a directory (named by the current timestamp) in this parent. Duplicity doesn't overwrite (by default) and restoring files is not an everyday occurrence in this particular use-case - so this is a reasonable approach.
