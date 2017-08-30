@@ -6,12 +6,12 @@ Duplicity is a network backup utility that has the ability to incrementally save
 
 This guide is written for Ubuntu 16.04 running Duplicity 0.7.06, but the procedures should be more or less the same for any Linux flavour (and probably Mac).
 
-Because Duplicty does not support hard links, the backup script includes an additional step that uses rsync to create a staging directory that includes what symlinks are pointing to. This is important for my particular use case, as my target directory serves as a single point for crucial files and directories. Note that what you restore will include the files that the original symlinks pointed to.
+Because Duplicity does not support hard links, the backup script includes an additional step that uses rsync to create a staging directory that includes what symlinks are pointing to. This is important for my particular use case, as my target directory serves as a single point of truth for crucial files and directories. Note that what you restore will include the files that the original symlinks pointed to.
 
-**Note:** Later versions of Duplicity (0.8) have the `--copy-links` option, which would make the rsync step unecessary. See here: https://askubuntu.com/a/941710/463571 and here: https://code.launchpad.net/~horgh/duplicity/copy-symlink-targets-721599.
+**Note:** Later versions of Duplicity (0.8) have the `--copy-links` option, which makes the rsync step unecessary. See here: https://askubuntu.com/a/941710/463571 and here: https://code.launchpad.net/~horgh/duplicity/copy-symlink-targets-721599.
 
 ## Amazon S3
-To set up Amazon S3 to host your backups, you will need and S3 Bucket and a dedicated IAM User with restricted capabilities.
+To set up Amazon S3 to host your backups, you will need to set up an S3 Bucket and a dedicated IAM User with appropriate (limited) capabilities.
 
 ### IAM User Setup
 When you create the new user, record the IAM credentials - especially the secret which is only shown once when the identity is generated (crack open your password manager for this).
