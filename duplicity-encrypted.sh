@@ -22,7 +22,7 @@ function sync_to_S3() {
   --encrypt-key=${GPG_KEY} \
   --asynchronous-upload \
   --verbosity notice \
-  --full-if-older-than 14D \
+  --full-if-older-than ${DAYS_TO_FULL_BACKUP}D \
   --archive-dir=${ARCHIVE_DIR} \
   ${STAGING_DIR} ${REMOTE_DESTINATION}
 }
