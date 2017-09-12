@@ -69,7 +69,7 @@ Create a bucket policy - use the policy generator if you like. The policy should
 Generate a dedicated GnuPG key with a strong passphrase:
 
 ~~~bash
-GnuPG --gen-key
+gpg --gen-key
 ~~~
 
 Enter your passphrase (twice) when prompted, and store your passphrase safely - for example in KeePassX.
@@ -80,7 +80,7 @@ A ten-word passphrase, pseudo-randomly selected from a keyspace of 7776 possible
 
 The backup script also requires the eight byte short key ID for your GnuPG Key.
 
-If you list keys with `GnuPG --list-keys`, you can get the required ID - the number quoted in the `pub` line after the key size:
+If you list keys with `gpg --list-keys`, you can get the required ID - the number quoted in the `pub` line after the key size:
 
 ~~~bash
 pub   4096R/6D4459F3 2017-08-28 [expires: 2017-09-28]
