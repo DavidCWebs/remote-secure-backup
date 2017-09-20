@@ -24,10 +24,14 @@ function sync_to_S3() {
   --verbosity notice \
   --full-if-older-than ${DAYS_TO_FULL_BACKUP}D \
   --archive-dir=${ARCHIVE_DIR} \
+  --name=${NAME} \
   ${STAGING_DIR} ${REMOTE_DESTINATION}
 }
 
 config
 build_staging
 sync_to_S3
-clean_up
+
+# Clean up
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY

@@ -5,10 +5,6 @@ SOURCE="/path/to/source"
 STAGING_DIR="/path/to/staging"
 REMOTE_DESTINATION="s3+http://your-bucket-name/subdir/"
 ARCHIVE_DIR="/path/to/custom-duplicity-archives/"
+NAME="secrets"
 GPG_KEY="XXXXXXXX"
 DAYS_TO_FULL_BACKUP="14"
-
-function clean_up() {
-  unset AWS_ACCESS_KEY_ID
-  unset AWS_SECRET_ACCESS_KEY
-}
