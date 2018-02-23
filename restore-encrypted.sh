@@ -1,4 +1,9 @@
 #!/bin/bash
+# Restore secrets from Amazon S3
+# ------------------------------------------------------------------------------
+set -o nounset
+set -o errexit
+
 function config() {
   THIS=$(readlink -f ${BASH_SOURCE[0]})
     PROJECT_DIR=$(dirname $THIS)
