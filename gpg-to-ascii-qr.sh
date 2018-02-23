@@ -6,6 +6,9 @@
 # This script also generates a set of QR codes representing the key in a
 # directory of your choice. Requires the `qrencode` utility.
 # ------------------------------------------------------------------------------
+set -o nounset
+set -o errexit
+
 function select_key() {
   gpg --list-keys
   echo "Please enter the reference for the GPG key you wish to backup:"
@@ -24,7 +27,6 @@ function set_output_directory() {
     echo "An unexpected error has occurred when setting the output directory.";;
   esac
   OUTPUT_FILE=${OUTPUT_DIR}/secret-${GPG_KEY}.asc
-
 }
 
 function export_secret_keys() {
@@ -35,13 +37,14 @@ function export_secret_keys() {
 function create_qrencoded_images() {
   if [[ -x "$(command -v qrencode)" ]]; then
     cd ${OUTPUT_DIR}
-    cat ${OUTPUT_FILE} | qrencode -Sv20 -o ${OUTPUT_FILE}.gpg.png
+    cat ${OUTPUT_FILE} | qrencode -S -v 40 -o ${OUTPUT_FILE}.gpg.png
     echo "Key split into multiple QR encoded images here: ${OUTPUT_DIR}"
   else
     echo "The qrencode package is not installed. See https://fukuchi.org/works/qrencode/index.html.en"
     echo "Or in Debian/Ubuntu run: sudo apt-get install qrencode."
   fi
 }
+
 select_key
 set_output_directory
 export_secret_keys
