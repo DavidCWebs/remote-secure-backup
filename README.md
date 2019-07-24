@@ -128,14 +128,14 @@ Enter `restore-my-secrets` to trigger the restore. The script will prompt you to
 You will be prompted for your GnuPG passphrase when restoring - as your secret key is needed to perform the decryption.
 
 ## Backup GnuPG Key
-Backup your GPG key for printing and safe storage by running the included `gpg-to-ascii-qr.sh` script.
+Backup your GPG key for printing and safe storage by running the included `gpg-to-ascii-qr.sh` [script][1].
 
 If you have a passphrase protected key, you can safely print and store the backup output - it will be useless without the passphrase.
 
 You could also use GPG to symettrically encrypt your config file - this will allow you to print and store your Amazon connection data to enable prompt disaster recovery.
 
-## To Do
-Add a config generator script.
 
 ## Resources & References
 [Duplicity Guide](http://duplicity.nongnu.org/duplicity.1.html)
+
+[1] gpg-to-ascii-qr.sh
