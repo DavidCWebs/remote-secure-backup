@@ -138,4 +138,4 @@ You could also use GPG to symettrically encrypt your config file - this will all
 ## Resources & References
 [Duplicity Guide](http://duplicity.nongnu.org/duplicity.1.html)
 
-[1] gpg-to-ascii-qr.sh
+[1]: gpg-to-ascii-qr.sh
